@@ -10,11 +10,11 @@
             screen.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="player-card text-center" v-if="state.showPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
-            <div>
+            <div v-if="state.player.showName">
               <span>{{ state.player.name }}</span>
             </div>
             <div>
@@ -128,10 +128,13 @@ export default {
   name: "condtional-rendering-exercise",
   setup() {
     const state = reactive({
+      showPlayer: true,
+      
       //add a property to toggle the player-card here.
       //add a property to set the number value here.
       player: {
         photo: "https://robohash.org/D$",
+        showName: true,
         name: "D$",
         position: "WR",
         number: 4,
@@ -147,10 +150,10 @@ export default {
 
 <style scoped>
 .player-card {
-  border: 1px solid rgba(154, 154, 156, 0.4);
-  background-color: rgba(154, 154, 156, 0.4);
+  border: 1px solid rgba(24, 24, 158, 0.4);
+  background-color: rgba(63, 83, 49, 0.4);
   margin: 1rem;
-  border-radius: 5px;
+  border-radius: 100px 20px;
 }
 
 .img {
